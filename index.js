@@ -293,15 +293,16 @@ function counterMaker() {
  * counter() // should return 0
  * etc
  */
-function counterMakerWithLimit(x) {
+function counterMakerWithLimit(max) {
     let count = 0;
+
     return function() {
-        if (x === count) {
+        if (count >= max) {
             count = 0;
             return count;
+        } else {
+            return count++;
         }
-
-        return count++;
     };
 }
 
